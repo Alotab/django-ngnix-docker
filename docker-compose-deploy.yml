@@ -9,7 +9,7 @@ services:
       - static_data:/vol/web
     environment:
       - SECRET_KEY='$d5c5h&vkazayd$nevzv2%xrexgv9jv0rauzx(+ue^-0)##&ly'
-      - ALLOWED_HOSTS=127.0.0.1, localhost
+      - ALLOWED_HOSTS=127.0.0.1, localhost  # In porduction you use app ip or app name(facebook.com)
 
   proxy:
     build:
@@ -19,7 +19,12 @@ services:
     ports:
       - "8080:8080"
     depends_on:
-      - app 
+      - app   # the proxy depends on the app. App needs to  be running for the proxy to run and also sets up network connection
 
+# tells docker compose to create a new volument called static data which is the shared volume in the services
 volumes:
   static_data:
+
+
+  # Use this as if the app is running in production deployment
+  # we run docker-compose -f docker-compose-deploy.yml up --build
