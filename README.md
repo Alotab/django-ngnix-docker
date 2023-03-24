@@ -1,6 +1,6 @@
-# Simple Django Hello World Starter Template
+# Dockerizing Django Application — and Nginx
 
-A basic Django 3.0 starter project.
+Running your Django application and Nginx proxy inside of Docker containers ensures that these components behave the same way regardless of the environment they are deployed into.
 
 
 ## Usage
